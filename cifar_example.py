@@ -11,7 +11,6 @@ import torch.backends.cudnn as cudnn
 import time
 
 from infobatch import InfoBatch
-from model import *
 from torch.utils.data import Dataset, DataLoader, WeightedRandomSampler
 from torchvision import transforms, utils
 
