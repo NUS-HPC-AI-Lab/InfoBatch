@@ -44,7 +44,7 @@ class InfoBatch(Dataset):
         return pruned_samples
 
     def pruning_sampler(self):
-        return InfoIterator(self.prune, self.no_prune, self.num_epoch, self.delta)
+        return InfoIterator(self, self.num_epoch, self.delta)
 
     def no_prune(self):
         samples = list(range(len(self.dataset)))
