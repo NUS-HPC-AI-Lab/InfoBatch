@@ -115,7 +115,7 @@ valid_acc = []
 
 # Training
 def train(epoch):
-    print('Epoch: %d' % epoch)
+    print('\nEpoch: %d' % epoch)
     net.train()
     train_loss = 0
     correct = 0
