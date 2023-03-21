@@ -140,7 +140,7 @@ def train(epoch):
         total += targets.size(0)
         correct += predicted.eq(targets).sum().item()
 
-    print('epoch:', epoch, '   Training Accuracy:', 100. * correct / total, '  Train loss:', train_loss / len(trainloader))
+    print('epoch:', epoch, '  Training Accuracy:', 100. * correct / total, '  Train loss:', train_loss / len(trainloader))
     train_acc.append(correct/total)
 
 def test(epoch):
