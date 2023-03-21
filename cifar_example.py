@@ -191,4 +191,4 @@ fn = '{}{}-{}-epoch{}-batchsize{}-pct{}-labelsm{}-{}_cifar100_InfoBatch_log.json
                                                                 datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S'))
 
 file = open(fn,'w+')
-json.dump([total_time,trainset.total_save(),args.ratios,train_acc,valid_acc],file)
+json.dump([total_time,trainset.total_save(),args.ratio,train_acc,valid_acc],file)
