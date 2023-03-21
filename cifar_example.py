@@ -63,8 +63,10 @@ test_transform = transforms.Compose([
 trainset = torchvision.datasets.CIFAR100(root='/tmp/cifar100', train=True, transform=train_transform,
     download=True)
 
+#1.Substitute dataset with InfoBatch dataset, optionally set r; delta and num_epoch are needed to anneal with full data
 trainset = InfoBatch(trainset, args.ratio if args.ratio else None, args.num_epoch, args.delta)
 
+#2.Substitute sampler
 trainloader = torch.utils.data.DataLoader(
     trainset, batch_size=args.batch_size, shuffle=args.shuffle, sampler = trainset.pruning_sampler())
 
@@ -118,7 +120,10 @@ def train(epoch):
     train_loss = 0
     correct = 0
     total = 0
+
+    #3.Change loading content from loader
     for batch_idx, (inputs, targets, indices, rescale_weight) in enumerate(trainloader):
+        #4.Put corresponding tensor onto device, and send back the scores
         inputs, targets, rescale_weight = inputs.to(device), targets.to(device), rescale_weight.to(device)
         optimizer.zero_grad()
         outputs = net(inputs)
@@ -126,6 +131,7 @@ def train(epoch):
         trainset.__setscore__(indices.detach().cpu().numpy(),loss.detach().cpu().numpy())
         loss = loss*rescale_weight
         loss = torch.mean(loss)
+        #-----------Only need to adapt above code in training------------#
         loss.backward()
         optimizer.step()
         lr_scheduler.step()
@@ -159,6 +165,7 @@ def test(epoch):
 total_time = 0
 
 for epoch in range(args.num_epoch):
+    # 5. For epoch based implementation, update corresponding learning rate schedule according to steps this epoch
     lr_scheduler = torch.optim.lr_scheduler.OneCycleLR(optimizer, args.max_lr,
                                                            steps_per_epoch=len(trainloader),
                                                            epochs=args.num_epoch, div_factor=args.div_factor,
