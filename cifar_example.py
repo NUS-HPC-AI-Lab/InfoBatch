@@ -78,7 +78,7 @@ testloader = torch.utils.data.DataLoader(
 
 
 # Model
-print('==> Building model..\n')
+print('==> Building model..')
 
 if args.model.lower()=='r18':
     net = torchvision.models.resnet18(num_classes=100)
@@ -115,7 +115,7 @@ valid_acc = []
 
 # Training
 def train(epoch):
-    print('Epoch: %d\n' % epoch)
+    print('Epoch: %d' % epoch)
     net.train()
     train_loss = 0
     correct = 0
