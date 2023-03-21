@@ -70,8 +70,6 @@ class InfoBatch(Dataset):
 
 class InfoIterator():
     def __init__(self, infobatch_dataset, num_epoch = math.inf, delta = 1):
-        if normal_selector is None and num_epoch*delta<math.inf:
-            raise ValueError('normal_selector should be specified for last epochs when using delta!')
         self.infobatch_dataset = infobatch_dataset
         self.seq = None
         self.stop_prune = num_epoch * delta
