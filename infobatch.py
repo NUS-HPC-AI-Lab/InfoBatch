@@ -38,7 +38,7 @@ class InfoBatch(Dataset):
         if len(selected)>0:
             self.weights[selected]=1/self.ratio
             pruned_samples.extend(selected)
-        print('Cut {} samples for this iteration'.format(len(self.dataset)-len(pruned_samples)))
+        print('Cut {} samples for next iteration'.format(len(self.dataset)-len(pruned_samples)))
         self.save_num += len(self.dataset)-len(pruned_samples)
         np.random.shuffle(pruned_samples)
         return pruned_samples
