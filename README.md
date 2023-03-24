@@ -15,7 +15,7 @@ To run CIFAR-100 example with InfoBatch, execute in command line:
 CUDA_VISIBLE_DEVICES=0 python3 cifar_example.py --model r50 --optimizer lars --max-lr 5.2 --ratio 0.5 --delta 0.875
 ```
 
-##Citation
+## Citation
 ```angular2html
 @article{qin2023infobatch,
   title={InfoBatch: Lossless Training Speed Up by Unbiased Dynamic Data Pruning},

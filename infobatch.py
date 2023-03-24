@@ -44,7 +44,7 @@ class InfoBatch(Dataset):
         return pruned_samples
 
     def pruning_sampler(self):
-        return InfoIterator(self, self.num_epoch, self.delta)
+        return InfoBatchSampler(self, self.num_epoch, self.delta)
 
     def no_prune(self):
         samples = list(range(len(self.dataset)))
@@ -55,7 +55,7 @@ class InfoBatch(Dataset):
         return self.scores.mean()
 
     def normal_sampler_no_prune(self):
-        return InfoIterator(self.no_prune)
+        return InfoBatchSampler(self.no_prune)
 
     def get_weights(self,indexes):
         return self.weights[indexes]
@@ -68,7 +68,7 @@ class InfoBatch(Dataset):
 
 
 
-class InfoIterator():
+class InfoBatchSampler():
     def __init__(self, infobatch_dataset, num_epoch = math.inf, delta = 1):
         self.infobatch_dataset = infobatch_dataset
         self.seq = None
