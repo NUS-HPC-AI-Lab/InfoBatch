@@ -97,14 +97,14 @@ if args.optimizer.lower()=='sgd':
     optimizer = optim.SGD(net.parameters(), lr=args.lr, momentum=args.momentum,
                       weight_decay=args.weight_decay)
 elif args.optimizer.lower()=='adam':
-    optimizer = torch.optim.Adam(net.parameters(), lr=args.lr,
+    optimizer = torch.optim.Adam(net.parameters(), lr=args.lr,momentum=args.momentum,
                       weight_decay=args.weight_decay)
 elif args.optimizer.lower() == 'lars':#no tensorboardX
     from lars import Lars
     optimizer = Lars(net.parameters(), lr=args.lr,momentum=args.momentum,weight_decay=args.weight_decay)
 elif args.optimizer.lower() == 'lamb':
     from lamb import Lamb
-    optimizer  = Lamb(net.parameters(),lr=args.lr,weight_decay=args.weight_decay)
+    optimizer  = Lamb(net.parameters(),lr=args.lr,momentum=args.momentum,weight_decay=args.weight_decay)
 
 lr_scheduler = torch.optim.lr_scheduler.OneCycleLR(optimizer,args.max_lr,steps_per_epoch=len(trainloader),
                                                   epochs=args.num_epoch,div_factor=args.div_factor,
