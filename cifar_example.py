@@ -13,6 +13,7 @@ import time
 from infobatch import InfoBatch
 from torch.utils.data import Dataset, DataLoader, WeightedRandomSampler
 from torchvision import transforms, utils
+from model import *
 
 parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
 parser.add_argument('--lr', default=1.0, type=float, help='learning rate')
@@ -81,13 +82,13 @@ testloader = torch.utils.data.DataLoader(
 print('==> Building model..')
 
 if args.model.lower()=='r18':
-    net = torchvision.models.resnet18(num_classes=100)
+    net = ResNet18(100)
 elif args.model.lower()=='r50':
-    net = torchvision.models.resnet50(num_classes=100)
+    net = ResNet50(num_classes=100)
 elif args.model.lower()=='r101':
-    net = torchvision.models.resnet101(num_classes=100)
+    net = ResNet101(num_classes=100)
 else:
-    net = torchvision.models.resnet50(num_classes=100)
+    net = ResNet50(num_classes=100)
 
 net = net.to(device)
 criterion = nn.CrossEntropyLoss(label_smoothing=args.label_smoothing, reduction='none')
