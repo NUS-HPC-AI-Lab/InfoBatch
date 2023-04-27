@@ -13,12 +13,13 @@ import time
 from infobatch import InfoBatch
 from torch.utils.data import Dataset, DataLoader, WeightedRandomSampler
 from torchvision import transforms, utils
+from model import *
 
 parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
-parser.add_argument('--lr', default=1.0, type=float, help='learning rate')
+parser.add_argument('--lr', default=0.2, type=float, help='learning rate')
 parser.add_argument('--resume', '-r', action='store_true',
                     help='resume from checkpoint')
-parser.add_argument('--batch-size', type=int, default=256, metavar='N',
+parser.add_argument('--batch-size', type=int, default=128, metavar='N',
                     help='input batch size for training (default: 128)')
 parser.add_argument('--test-batch-size', type=int, default=128, metavar='N',
                     help='input batch size for testing (default: 128)')
@@ -29,7 +30,6 @@ parser.add_argument('--weight-decay', type=float, default=5e-4, metavar='W',
 parser.add_argument('--optimizer',type=str,default='lars',
                     help='different optimizers')
 parser.add_argument('--label-smoothing',type=float,default=0.1)
-parser.add_argument('--class-balance', default = False, action='store_true')
 # onecycle scheduling arguments
 parser.add_argument('--max-lr',default=0.1,type=float)
 parser.add_argument('--div-factor',default=25,type=float)
@@ -81,21 +81,20 @@ testloader = torch.utils.data.DataLoader(
 print('==> Building model..')
 
 if args.model.lower()=='r18':
-    net = torchvision.models.resnet18(num_classes=100)
+    net = ResNet18(100)
 elif args.model.lower()=='r50':
-    net = torchvision.models.resnet50(num_classes=100)
+    net = ResNet50(num_classes=100)
 elif args.model.lower()=='r101':
-    net = torchvision.models.resnet101(num_classes=100)
+    net = ResNet101(num_classes=100)
 else:
-    net = torchvision.models.resnet50(num_classes=100)
+    net = ResNet50(num_classes=100)
 
 net = net.to(device)
 criterion = nn.CrossEntropyLoss(label_smoothing=args.label_smoothing, reduction='none')
 test_criterion = nn.CrossEntropyLoss()
 
 if args.optimizer.lower()=='sgd':
-    optimizer = optim.SGD(net.parameters(), lr=args.lr, momentum=args.momentum,
-                      weight_decay=args.weight_decay)
+    optimizer = optim.SGD(net.parameters(), lr=args.lr,momentum=args.momentum,weight_decay=args.weight_decay)
 elif args.optimizer.lower()=='adam':
     optimizer = torch.optim.Adam(net.parameters(), lr=args.lr,momentum=args.momentum,
                       weight_decay=args.weight_decay)
