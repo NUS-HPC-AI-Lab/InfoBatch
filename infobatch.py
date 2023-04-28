@@ -33,7 +33,7 @@ class InfoBatch(Dataset):
         well_learned_samples = np.where(b)[0]
         pruned_samples = []
         pruned_samples.extend(np.where(np.invert(b))[0])
-        selected = np.random.choice(well_learned_samples, int(self.ratio*len(well_learned_samples)))
+        selected = np.random.choice(well_learned_samples, int(self.ratio*len(well_learned_samples)),replace=False)
         self.reset_weights()
         if len(selected)>0:
             self.weights[selected]=1/self.ratio
