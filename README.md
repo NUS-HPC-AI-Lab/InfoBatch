@@ -5,7 +5,7 @@ Paper Link: https://arxiv.org/pdf/2303.04947.pdf
 
 ![image](https://github.com/henryqin1997/InfoBatch/blob/master/figs/pipeline.png)
 
-##CIFAR Experiments
+## CIFAR Experiments
 To run CIFAR-100 example with Baseline, execute in command line:
 ```angular2html
 CUDA_VISIBLE_DEVICES=0 python3 cifar_example.py --model r50 --optimizer lars --max-lr 5.2 --delta 0.0
@@ -16,7 +16,7 @@ To run CIFAR-100 example with InfoBatch, execute in command line:
 CUDA_VISIBLE_DEVICES=0 python3 cifar_example.py --model r50 --optimizer lars --max-lr 5.2 --ratio 0.5 --delta 0.875
 ```
 
-##Other experiments
+## Other experiments
 Code of other experiments will be released in the following month (May 2023). 
 Hyperparamets not included in main text will also be released in appendix.
 
