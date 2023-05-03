@@ -3,7 +3,7 @@ import numpy as np
 from torch.utils.data import Dataset
 
 class InfoBatch(Dataset):
-    def __init__(self, dataset, ratio = 0.5, num_epoch=None, delta = None):
+    def __init__(self, dataset, ratio = 0.5, num_epoch=None, delta = 0.875):
         self.dataset = dataset
         self.ratio = ratio
         self.num_epoch = num_epoch
