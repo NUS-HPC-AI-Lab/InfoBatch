@@ -5,6 +5,9 @@ Paper Link: https://arxiv.org/pdf/2303.04947.pdf
 
 ![image](https://github.com/henryqin1997/InfoBatch/blob/master/figs/pipeline.png)
 
+## 2023 Aug 1 Update
+We are now able to losslessly save 40.9% on CIFAR100 and ImageNet. Updating paper content and preparing for public code.
+
 ## CIFAR Experiments
 To run CIFAR-100 example with Baseline, execute in command line:
 ```angular2html
@@ -17,7 +20,7 @@ CUDA_VISIBLE_DEVICES=0 python3 cifar_example.py --model r50 --optimizer lars --m
 ```
 
 ## Other experiments
-Code of other experiments will be released in the following month (Before Aug 2023). 
+Code of other experiments will be released in the following month (Before the End of Aug 2023). 
 Hyperparameters not included in main text will also be released in appendix.
 
 
