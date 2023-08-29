@@ -20,8 +20,8 @@ CUDA_VISIBLE_DEVICES=0 python3 cifar_example.py --model r50 --optimizer lars --m
 ```
 
 ## Other experiments
-Code of other experiments will be released in the following month (Before the End of Aug 2023). 
-Hyperparameters not included in main text will also be released in appendix.
+The code of other experiments will be released in the following months. 
+Hyperparameters not included in main text will also be released in the appendix.
 
 
 ## Citation
