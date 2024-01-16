@@ -5,6 +5,9 @@ Paper Link: https://arxiv.org/pdf/2303.04947.pdf
 
 ![image](https://github.com/henryqin1997/InfoBatch/blob/master/figs/pipeline.png)
 
+## 2024 Jan 16 Update
+Our work got accepted to ICLR 2024(Oral)! A new version with only 3 lines of change will be updated soon. Experiments included in the paper (and beyond) will be gradually updated with detail.
+
 ## 2023 Aug 1 Update
 We are now able to losslessly save 40.9% on CIFAR100 and ImageNet. Updating paper content and preparing for public code.
 
