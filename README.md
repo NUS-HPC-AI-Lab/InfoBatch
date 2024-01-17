@@ -1,19 +1,32 @@
-# InfoBatch ICLR-2024 Oral Presentation
+# InfoBatch 
+ICLR 2024 Oral Presentation
+
 Paper Link: https://arxiv.org/pdf/2303.04947.pdf
 
-![image](https://github.com/henryqin1997/InfoBatch/blob/master/figs/motivation.png) 
+InfoBatch is a work aiming at lossless deep learning training acceleration. We provide our code for research studies and real-world applications.
 
 ![image](https://github.com/henryqin1997/InfoBatch/blob/master/figs/pipeline.png)
-## 2024 Jan 17 Update
-New version with only 3 lines of change comes!  Note one should make changes to their loss (redcution to non-reduction version)
 
-## 2024 Jan 16 Update
-Our work got accepted to ICLR 2024(Oral)! A new version with only 3 lines of change will be updated soon. Experiments included in the paper (and beyond) will be gradually updated with detail.
+## News
 
-## 2023 Aug 1 Update
-We are now able to losslessly save 40.9% on CIFAR100 and ImageNet. Updating paper content and preparing for public code.
+[2024/1/17] 🔥 New version with only 3 lines of change comes!  Note that one should use a per-sample loss (to serve as the score and total loss calculation)
 
-## CIFAR Experiments
+[2024/1/16] 🔥 Our work got accepted to ICLR 2024 (oral)! A new version with only 3 lines of change will be updated soon. Experiments included in the paper (and beyond) will be gradually updated with detail.
+
+[2023/8/1] 🔥 InfoBatch can now losslessly save 40.9% on CIFAR100 and ImageNet. We are updating paper content and preparing for public code.
+
+## TODO List
+- [x] Paper
+- [ ] PyPI Registration
+- [ ] Update experiment code
+
+
+## Contents
+- [Get Started](#get-started)
+- [Citation](#citation)
+
+
+## Get Started
 To run CIFAR-100 example with Baseline, execute in command line:
 ```angular2html
 CUDA_VISIBLE_DEVICES=0 python3 cifar_example.py --model r50 --optimizer lars --max-lr 5.2 --delta 0.0
@@ -39,10 +52,6 @@ CUDA_VISIBLE_DEVICES=0,1 python3 -m torch.distributed.launch --use_env --nnodes=
 ```
 
 You may observe performance drop when using the Distributed Data Parallel (DDP) training approach compared to the Data Parallel (DP) approach on multiple GPUs, especially in versions prior to Pytorch 1.11. However, this is not specific to our algorithm itself.
-
-## Other experiments
-The code of other experiments will be released in the following months. 
-Hyperparameters not included in main text will also be released in the appendix.
 
 
 ## Citation
