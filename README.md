@@ -9,7 +9,7 @@ InfoBatch is a work aiming at lossless deep learning training acceleration. We p
 
 ## News
 
-[2024/1/17] 🔥 New version with only 3 lines of change comes!  Note that one should use a per-sample loss (to serve as the score and total loss calculation)
+[2024/1/17] 🔥 New version with only 3 lines of change comes!  Note that one should use a per-sample loss (to update the score and calculate batch loss)
 
 [2024/1/16] 🔥 Our work got accepted to ICLR 2024 (oral)! A new version with only 3 lines of change will be updated soon. Experiments included in the paper (and beyond) will be gradually updated with detail.
 
@@ -23,10 +23,19 @@ InfoBatch is a work aiming at lossless deep learning training acceleration. We p
 
 ## Contents
 - [Get Started](#get-started)
+- [Experiments](#experiments)
 - [Citation](#citation)
 
 
 ## Get Started
+To adapt your code with InfoBatch, just download and import InfoBatch, and change the following three lines:
+
+![image](https://github.com/henryqin1997/InfoBatch/blob/master/figs/three_line_of_code.png)
+
+Note that one should use a **per-sample loss** to update the score and calculate batch loss; if the **learning rate scheduler**
+is **epoch-based**, **adjust its steps accordingly** at beginning of each epoch.
+
+## Experiments
 To run CIFAR-100 example with Baseline, execute in command line:
 ```angular2html
 CUDA_VISIBLE_DEVICES=0 python3 cifar_example.py --model r50 --optimizer lars --max-lr 5.2 --delta 0.0
