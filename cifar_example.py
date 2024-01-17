@@ -183,7 +183,7 @@ if __name__ == '__main__':
             with torch.cuda.amp.autocast(args.fp16):
                 outputs = net(inputs)
                 loss = criterion(outputs, targets)
-                # 3. use <InfoBatchDataset>.update(loss), all rescaling is now at the backend, see previous (research version) code for details.
+                # 3. use <InfoBatch>.update(loss), all rescaling is now conducted at the backend, see previous (research version) code for details.
                 trainset.update(loss)
                 loss = torch.mean(loss)
             scaler.scale(loss).backward()
@@ -260,7 +260,7 @@ if __name__ == '__main__':
     for epoch in range(args.num_epoch):
         if args.use_ddp:
             trainloader.sampler.set_epoch(epoch)
-        # 5. For epoch based implementation, update corresponding learning rate schedule according to steps this epoch
+        # 4. For epoch-based implementation, update the corresponding learning rate schedule according to steps of this epoch
         lr_scheduler = torch.optim.lr_scheduler.OneCycleLR(optimizer, args.max_lr,
                                                         steps_per_epoch=len(trainloader),
                                                         epochs=args.num_epoch, div_factor=args.div_factor,
