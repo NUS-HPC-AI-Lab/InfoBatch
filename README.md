@@ -20,10 +20,26 @@ InfoBatch is a tool for lossless deep learning training acceleration. It achieve
 
 
 ## Contents
+- [Install](#install)
 - [Get Started](#get-started)
 - [Experiments](#experiments)
 - [Citation](#citation)
 
+## Install
+
+Install InfoBatch via
+
+```bash
+pip install git+https://github.com/henryqin1997/InfoBatch
+```
+
+Or you can clone this repo and install locally.
+
+```bash
+git clone https://github.com/henryqin1997/InfoBatch
+cd InfoBatch
+pip install -e .
+```
 
 ## Get Started
 To adapt your code with InfoBatch, just download and import InfoBatch, and change the following three lines:
