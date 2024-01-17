@@ -27,7 +27,6 @@ To run CIFAR-100 example with mixed precision training, distributed data paralle
 ```angular2html
 CUDA_VISIBLE_DEVICES=0,1 python3 -m torch.distributed.launch --use_env --nnodes=1 --nproc_per_node=2 --master_addr=127.0.0.1 --master_port=23456 --node_rank=0 cifar_example.py --use_ddp --fp16 --model r50 --optimizer lars --max-lr 5.2 --delta 0.0
 ```
-You may find performance drop 
 
 To run CIFAR-100 example with InfoBatch, execute in command line:
 ```angular2html
