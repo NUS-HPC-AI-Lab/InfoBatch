@@ -14,10 +14,14 @@ InfoBatch is a tool for lossless deep learning training acceleration. It achieve
 [2023/8/1] 🔥 InfoBatch can now losslessly save 40.9% on CIFAR100 and ImageNet. We are updating paper content and preparing for public code.
 
 ## TODO List
-- [x] Paper
-- [ ] PyPI Registration
-- [ ] Update experiment code
 
+- [x] Plug-and-Play Implementation of InfoBatch
+- [ ] PyPI Registration
+- [x] Experiment: Classification on Cifar
+- [ ] Experiment: Classification on ImageNet
+- [ ] Experiment: Segmentation
+- [ ] Experiment: Diffusion
+- [ ] Experiment: Instruction Finetunning
 
 ## Contents
 - [Install](#install)
@@ -33,7 +37,7 @@ Install InfoBatch via
 pip install git+https://github.com/henryqin1997/InfoBatch
 ```
 
-Or you can clone this repo and install locally.
+Or you can clone this repo and install it locally.
 
 ```bash
 git clone https://github.com/henryqin1997/InfoBatch
@@ -49,7 +53,11 @@ To adapt your code with InfoBatch, just download and import InfoBatch, and chang
 Note that one should use a **per-sample loss** to update the score and calculate batch loss; if the **learning rate scheduler**
 is **epoch-based**, **adjust its steps accordingly** at beginning of each epoch.
 
+For research studies and more flexible codes, you can refer to the code in `research`.
+
 ## Experiments
+
+### Cifar
 
 To run the CIFAR-100 example with baseline, run with delta=0:
 ```bash
@@ -72,8 +80,6 @@ CUDA_VISIBLE_DEVICES=0,1 python3 -m torch.distributed.launch --use_env --nnodes=
 ```
 
 You may observe a performance drop when using the Distributed Data-Parallel (DDP) training approach compared to the Data Parallel (DP) approach on multiple GPUs, especially in versions prior to Pytorch 1.11. However, this is not specific to our algorithm itself.
-
-For research studies and more flexible codes, you can refer to the code in `research`.
 
 ## Citation
 ```bibtex
