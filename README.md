@@ -1,9 +1,7 @@
-# InfoBatch 
-ICLR 2024 Oral Presentation
+<h2 align="center">InfoBatch</h1>
+<p align="center"><b>ICLR 2024 Oral</b> | <a href="https://arxiv.org/pdf/2303.04947.pdf">[Paper]</a> | <a href="https://github.com/henryqin1997/InfoBatch">[Code]</a> </p>
 
-Paper Link: https://arxiv.org/pdf/2303.04947.pdf
-
-InfoBatch is a work aiming at lossless deep learning training acceleration. We provide our code for research studies and real-world applications.
+InfoBatch is a tool for lossless deep learning training acceleration. It achieves lossless training speed-up by unbiased dynamic data pruning.
 
 ![image](https://github.com/henryqin1997/InfoBatch/blob/master/figs/pipeline.png)
 
@@ -53,9 +51,11 @@ CUDA_VISIBLE_DEVICES=0,1 python3 -m torch.distributed.launch --use_env --nnodes=
 
 You may observe performance drop when using the Distributed Data Parallel (DDP) training approach compared to the Data Parallel (DP) approach on multiple GPUs, especially in versions prior to Pytorch 1.11. However, this is not specific to our algorithm itself.
 
+For research studies, you can refer to code in `research`.
+
 
 ## Citation
-```angular2html
+```bibtex
 @article{qin2023infobatch,
   title={InfoBatch: Lossless Training Speed Up by Unbiased Dynamic Data Pruning},
   author={Qin, Ziheng and Wang, Kai and Zheng, Zangwei and Gu, Jianyang and Peng, Xiangyu and Zhaopan Xu and Zhou, Daquan and Lei Shang and Baigui Sun and Xuansong Xie and You, Yang},
