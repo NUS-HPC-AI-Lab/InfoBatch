@@ -1,4 +1,4 @@
-<h2 align="center">InfoBatch</h1>
+<h2 align="center">InfoBatch</h2>
 <p align="center"><b>ICLR 2024 Oral</b> | <a href="https://arxiv.org/pdf/2303.04947.pdf">[Paper]</a> | <a href="https://github.com/henryqin1997/InfoBatch">[Code]</a> </p>
 
 InfoBatch is a tool for lossless deep learning training acceleration. It achieves lossless training speed-up by unbiased dynamic data pruning.
@@ -50,34 +50,30 @@ Note that one should use a **per-sample loss** to update the score and calculate
 is **epoch-based**, **adjust its steps accordingly** at beginning of each epoch.
 
 ## Experiments
-To run CIFAR-100 example with Baseline, execute in command line:
-```angular2html
-CUDA_VISIBLE_DEVICES=0 python3 cifar_example.py --model r50 --optimizer lars --max-lr 5.2 --delta 0.0
-```
-To run CIFAR-100 example with mixed precision training, execute in command line:
-```angular2html
-CUDA_VISIBLE_DEVICES=0 python3 cifar_example.py --fp16 --model r50 --optimizer lars --max-lr 5.2 --delta 0.0
-```
-To run CIFAR-100 example with mixed precision training, distributed data parallel (e.g 1 machine with 2 gpus.), execute in command line:
 
-```angular2html
-CUDA_VISIBLE_DEVICES=0,1 python3 -m torch.distributed.launch --use_env --nnodes=1 --nproc_per_node=2 --master_addr=127.0.0.1 --master_port=23456 --node_rank=0 cifar_example.py --use_ddp --fp16 --model r50 --optimizer lars --max-lr 5.2 --delta 0.0
+To run the CIFAR-100 example with baseline, run with delta=0:
+```bash
+python3 examples/cifar_example.py \
+  --model r50 --optimizer lars --max-lr 5.2 --delta 0.0
 ```
 
-To run CIFAR-100 example with InfoBatch, execute in command line:
-```angular2html
-CUDA_VISIBLE_DEVICES=0 python3 cifar_example.py --model r50 --optimizer lars --max-lr 5.2 --ratio 0.5 --delta 0.875
+To run the CIFAR-100 example with InfoBatch, run the following:
+```bash
+python3 examples/cifar_example.py \
+  --model r50 --optimizer lars --max-lr 5.2 --delta 0.875 --ratio 0.5
 ```
 
-To run CIFAR-100 example with InfoBatch, with mixed precision training, distributed data parallel (e.g 1 machine with 2 gpus.), execute in command line:
-```angular2html
-CUDA_VISIBLE_DEVICES=0,1 python3 -m torch.distributed.launch --use_env --nnodes=1 --nproc_per_node=2 --master_addr=127.0.0.1 --master_port=23456 --node_rank=0 cifar_example.py --use_ddp --use_info_batch --fp16 --model r50 --optimizer lars --max-lr 5.2 --delta 0.875 --ratio 0.5
+Our example also supports mixed precision training and distributed data parallelism with the following command:
+```bash
+CUDA_VISIBLE_DEVICES=0,1 python3 -m torch.distributed.launch --use_env --nnodes=1 --nproc_per_node=2 \
+  --master_addr=127.0.0.1 --master_port=23456 --node_rank=0 cifar_example.py \
+  --use_ddp --use_info_batch --fp16 \
+  --model r50 --optimizer lars --max-lr 5.2 --delta 0.875 --ratio 0.5
 ```
 
-You may observe performance drop when using the Distributed Data Parallel (DDP) training approach compared to the Data Parallel (DP) approach on multiple GPUs, especially in versions prior to Pytorch 1.11. However, this is not specific to our algorithm itself.
+You may observe a performance drop when using the Distributed Data-Parallel (DDP) training approach compared to the Data Parallel (DP) approach on multiple GPUs, especially in versions prior to Pytorch 1.11. However, this is not specific to our algorithm itself.
 
-For research studies, you can refer to code in `research`.
-
+For research studies and more flexible codes, you can refer to the code in `research`.
 
 ## Citation
 ```bibtex
