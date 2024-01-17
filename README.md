@@ -4,7 +4,7 @@ Paper Link: https://arxiv.org/pdf/2303.04947.pdf
 ![image](https://github.com/henryqin1997/InfoBatch/blob/master/figs/motivation.png) 
 
 ![image](https://github.com/henryqin1997/InfoBatch/blob/master/figs/pipeline.png)
-## 2024 Jan 16 Update
+## 2024 Jan 17 Update
 New version with only 3 lines of change comes!  Note one have make changes to their loss (redcution to non-reduction version)
 
 ## 2024 Jan 16 Update
