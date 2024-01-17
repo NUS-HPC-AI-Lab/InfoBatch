@@ -176,24 +176,16 @@ if __name__ == '__main__':
         correct = 0
         total = 0
 
-        # 3.Change loading content from loader
-        # for batch_idx, blob in enumerate(trainloader):
         for batch_idx, blobs in enumerate(trainloader):
-            # 4.Put corresponding tensor onto device, and send back the scores
             inputs, targets = blobs
-            inputs, targets = inputs.to(device), targets.to(device) # , rescale_weight.to(device), indices.to(device)
+            inputs, targets = inputs.to(device), targets.to(device)
             optimizer.zero_grad()
             with torch.cuda.amp.autocast(args.fp16):
                 outputs = net(inputs)
                 loss = criterion(outputs, targets)
+                # 3. use <InfoBatchDataset>.update(loss), all rescaling is now at the backend, see previous (research version) code for details.
                 trainset.update(loss)
-                # print(indices)
-                # trainset.update(indices, loss)
-                # if (batch_idx + 1) % 50 == 0:
-                    # safe_print(loss.detach().min())
-                    # safe_print('iteration %d' % (batch_idx + 1), 'mean loss value is ', loss.detach().min().item())
                 loss = torch.mean(loss)
-            #-----------Only need to adapt above code in training------------#
             scaler.scale(loss).backward()
             scaler.step(optimizer)
             scaler.update()
@@ -202,8 +194,6 @@ if __name__ == '__main__':
             _, predicted = outputs.max(1)
             total += targets.size(0)
             correct += predicted.eq(targets).sum().item()
-            # if (batch_idx + 1) % 100 == 0:
-            #    safe_print('%d/%d iterations...' % (batch_idx + 1, len(trainloader)))
         safe_print('epoch:', epoch, '  Training Accuracy:', round(100. * correct /
             total, 3), '  Train loss:', round(train_loss / len(trainloader), 4))
         train_acc.append(correct / total)
@@ -216,15 +206,12 @@ if __name__ == '__main__':
         correct = 0
         total = 0
 
-        # 3.Change loading content from loader
         for batch_idx, (inputs, targets) in enumerate(trainloader):
-            # 4.Put corresponding tensor onto device, and send back the scores
             inputs, targets = inputs.to(device), targets.to(device)
             optimizer.zero_grad()
             with torch.cuda.amp.autocast(args.fp16):
                 outputs = net(inputs)
                 loss = torch.mean(criterion(outputs, targets))
-            #-----------Only need to adapt above code in training------------#
             scaler.scale(loss).backward()
             scaler.step(optimizer)
             scaler.update()
@@ -233,8 +220,6 @@ if __name__ == '__main__':
             _, predicted = outputs.max(1)
             total += targets.size(0)
             correct += predicted.eq(targets).sum().item()
-            # if (batch_idx + 1) % 100 == 0:
-            #    safe_print('%d/%d iterations...' % (batch_idx + 1, len(trainloader)))
         safe_print('epoch:', epoch, '  Training Accuracy:', round(100. * correct /
             total, 3), '  Train loss:', round(train_loss / len(trainloader), 4))
         train_acc.append(correct / total)
