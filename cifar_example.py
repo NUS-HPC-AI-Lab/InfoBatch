@@ -183,9 +183,8 @@ if __name__ == '__main__':
             with torch.cuda.amp.autocast(args.fp16):
                 outputs = net(inputs)
                 loss = criterion(outputs, targets)
-                # 3. use <InfoBatch>.update(loss), all rescaling is now conducted at the backend, see previous (research version) code for details.
-                trainset.update(loss)
-                loss = torch.mean(loss)
+                # 3. use <InfoBatch>.update(loss), all scoring/rescaling/getting mean is now conducted at the backend, see previous (research version) code for details.
+                loss = trainset.update(loss)
             scaler.scale(loss).backward()
             scaler.step(optimizer)
             scaler.update()
