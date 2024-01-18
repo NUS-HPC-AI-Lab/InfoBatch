@@ -3,7 +3,7 @@
 
 InfoBatch is a tool for lossless deep learning training acceleration. It achieves lossless training speed-up by unbiased dynamic data pruning.
 
-![image](https://github.com/henryqin1997/InfoBatch/blob/master/figs/pipeline.png)
+![image](https://github.com/NUS-HPC-AI-LAB/InfoBatch/blob/master/figs/pipeline.png)
 
 ## News
 
