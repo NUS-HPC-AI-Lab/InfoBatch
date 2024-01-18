@@ -83,10 +83,12 @@ You may observe a performance drop when using the Distributed Data-Parallel (DDP
 
 ## Citation
 ```bibtex
-@article{qin2023infobatch,
+@inproceedings{
+  qin2024infobatch,
   title={InfoBatch: Lossless Training Speed Up by Unbiased Dynamic Data Pruning},
   author={Qin, Ziheng and Wang, Kai and Zheng, Zangwei and Gu, Jianyang and Peng, Xiangyu and Zhaopan Xu and Zhou, Daquan and Lei Shang and Baigui Sun and Xuansong Xie and You, Yang},
-  journal={arXiv preprint arXiv:2303.04947},
-  year={2023}
+  booktitle={The Twelfth International Conference on Learning Representations},
+  year={2024},
+  url={https://openreview.net/forum?id=C61sk5LsK6}
 }
 ```
