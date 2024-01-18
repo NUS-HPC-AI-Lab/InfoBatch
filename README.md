@@ -34,13 +34,13 @@ InfoBatch is a tool for lossless deep learning training acceleration. It achieve
 Install InfoBatch via
 
 ```bash
-pip install git+https://github.com/henryqin1997/InfoBatch
+pip install git+https://github.com/NUS-HPC-AI-Lab/InfoBatch
 ```
 
 Or you can clone this repo and install it locally.
 
 ```bash
-git clone https://github.com/henryqin1997/InfoBatch
+git clone https://github.com/NUS-HPC-AI-Lab/InfoBatch
 cd InfoBatch
 pip install -e .
 ```
