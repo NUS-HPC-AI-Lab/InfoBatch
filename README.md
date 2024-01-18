@@ -1,5 +1,5 @@
 <h2 align="center">InfoBatch</h2>
-<p align="center"><b>ICLR 2024 Oral</b> | <a href="https://arxiv.org/pdf/2303.04947.pdf">[Paper]</a> | <a href="https://github.com/henryqin1997/InfoBatch">[Code]</a> </p>
+<p align="center"><b>ICLR 2024 Oral</b> | <a href="https://arxiv.org/pdf/2303.04947.pdf">[Paper]</a> | <a href="https://github.com/NUS-HPC-AI-LAB/InfoBatch">[Code]</a> </p>
 
 InfoBatch is a tool for lossless deep learning training acceleration. It achieves lossless training speed-up by unbiased dynamic data pruning.
 
