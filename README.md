@@ -22,7 +22,8 @@ InfoBatch is a tool for lossless deep learning training acceleration. It achieve
 - [ ] Experiment: Segmentation
 - [ ] Experiment: Diffusion
 - [ ] Experiment: Instruction Finetunning
-- [ ] Experiment: Detection on COCO.
+- [ ] Experiment: Detection (YOLOv8) on COCO
+- [ ] Paper: Update after ICML ddl, thx
 
 ## Contents
 - [Install](#install)
