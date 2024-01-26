@@ -70,7 +70,7 @@ python3 examples/cifar_example.py \
 To run the CIFAR-100 example with InfoBatch, run the following:
 ```bash
 python3 examples/cifar_example.py \
-  --model r50 --optimizer lars --max-lr 5.2 --delta 0.875 --ratio 0.5
+  --model r50 --optimizer lars --max-lr 5.2 --delta 0.875 --ratio 0.5 --use_info_batch
 ```
 
 Our example also supports mixed precision training and distributed data parallelism with the following command:
