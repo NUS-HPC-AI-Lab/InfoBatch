@@ -1,0 +1,3 @@
+[submodule "examples/alpaca-lora"]
+	path = examples/alpaca-lora
+	url = https://github.com/henryqin1997/alpaca-lora
