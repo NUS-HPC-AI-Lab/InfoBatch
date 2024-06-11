@@ -4,3 +4,6 @@
 [submodule "examples/mmsegmentation"]
 	path = examples/mmsegmentation
 	url = https://github.com/henryqin1997/mmsegmentation.git
+[submodule "examples/InfoBatch-ImageNet"]
+	path = examples/InfoBatch-ImageNet
+	url = https://github.com/henryqin1997/InfoBatch-ImageNet.git
