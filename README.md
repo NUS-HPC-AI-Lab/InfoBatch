@@ -19,11 +19,11 @@ InfoBatch is a tool for lossless deep learning training acceleration. It achieve
 - [ ] PyPI Registration
 - [x] Experiment: Classification on Cifar
 - [ ] Experiment: Classification on ImageNet
-- [ ] Experiment: Segmentation
+- [x] Experiment: Segmentation
 - [ ] Experiment: Diffusion
-- [ ] Experiment: Instruction Finetunning
+- [x] Experiment: Instruction Finetuning
 - [ ] Experiment: Detection (YOLOv8) on COCO
-- [ ] Paper: Update after ICML ddl, thx
+- [x] Paper: Updated on Openreview
 
 ## Contents
 - [Install](#install)
