@@ -53,7 +53,7 @@ To adapt your code with InfoBatch, just download and import InfoBatch, and chang
 ![image](https://github.com/NUS-HPC-AI-Lab/InfoBatch/blob/master/figs/three_line.png)
 
 Note that one should use a **per-sample loss** to update the score and calculate batch loss; if the **learning rate scheduler**
-is **epoch-based**, **adjust its steps accordingly** at beginning of each epoch.
+is **step-based**, **adjust its steps-per-epoch accordingly** at beginning of each epoch.
 
 For research studies and more flexible codes, you can refer to the code in `research`.
 
