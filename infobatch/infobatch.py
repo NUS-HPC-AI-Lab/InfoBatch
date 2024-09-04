@@ -82,6 +82,10 @@ class InfoBatch(Dataset):
         self.num_pruned_samples = 0
         self.cur_batch_index = None
 
+    def __getattr__(self, name):
+        # Delegate the method call to the self.dataset if it is not found in Wrapper
+        return getattr(self.dataset, name)
+
     def set_active_indices(self, cur_batch_indices: torch.Tensor):
         self.cur_batch_index = cur_batch_indices
 
