@@ -7,3 +7,6 @@
 [submodule "examples/InfoBatch-ImageNet"]
 	path = examples/InfoBatch-ImageNet
 	url = https://github.com/henryqin1997/InfoBatch-ImageNet.git
+[submodule "examples/latent-diffusion-infobatch"]
+	path = examples/latent-diffusion-infobatch
+	url = https://github.com/henryqin1997/latent-diffusion-infobatch.git
