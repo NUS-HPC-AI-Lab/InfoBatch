@@ -6,6 +6,7 @@ InfoBatch is a tool for lossless deep learning training acceleration. It achieve
 ![image](https://github.com/NUS-HPC-AI-LAB/InfoBatch/blob/master/figs/pipeline.png)
 
 ## News
+[2024/9/24] 🔥 Ultralytics-InfoBatch in testing at https://github.com/henryqin1997/ultralytics-infobatch! Latent diffusion was added to examples!
 
 [2024/1/17] 🔥 New version with only 3 lines of change comes!  Note that one should use a per-sample loss (to update the score and calculate batch loss)
 
@@ -18,9 +19,9 @@ InfoBatch is a tool for lossless deep learning training acceleration. It achieve
 - [x] Plug-and-Play Implementation of InfoBatch
 - [ ] PyPI Registration
 - [x] Experiment: Classification on Cifar
-- [ ] Experiment: Classification on ImageNet
+- [x] Experiment: Classification on ImageNet
 - [x] Experiment: Segmentation
-- [ ] Experiment: Diffusion
+- [x] Experiment: Diffusion
 - [x] Experiment: Instruction Finetuning
 - [ ] Experiment: Detection (YOLOv8) on COCO
 - [x] Paper: Updated on Openreview
